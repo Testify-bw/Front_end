@@ -1,14 +1,34 @@
 import React, { useState } from "react";
+import api from '../utils/api';
 
 export default function Login() {
-  const [state, setState] = useState();
+  const [error, setError] = useState()
+  const [state, setState] = useState({
+    username: '',
+    password: '',
+  });
 
   const handleChange = e => {
-    setState(e.target.value);
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    api()
+      .post('/login', state)
+      .then(res => {
+        console.log("login data", res)
+        localStorage.setItem('token', res.data.token)
+        // props.history.push('/test')
+      })
+      .catch(err => {
+        console.log(err)
+        setError('Unable to authenticate user.')
+      })
   };
 
   return (
@@ -22,7 +42,7 @@ export default function Login() {
       />
 
       <input
-        type="text"
+        type="password"
         name="password"
         //   value={data}
         onChange={handleChange}

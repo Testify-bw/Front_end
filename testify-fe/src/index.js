@@ -5,8 +5,6 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { BrowserRouter as Router } from "react-router-dom";
-
 //wrap provider
 import { createStore, applyMiddleware, } from 'redux';
 import { Provider } from 'react-redux';
