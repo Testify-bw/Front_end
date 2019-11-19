@@ -4,11 +4,26 @@ export default function Register() {
   const [user, setUser] = useState();
 
   const handleChange = e => {
-    setUser(e.target.value);
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    api()
+      .post('/register', user)
+      .then(res => {
+        console.log("login data", res)
+        localStorage.setItem('token', res.data.token)
+        // props.history.push('/test')
+      })
+      .catch(err => {
+        console.log(err)
+        setError('Unable to create user.')
+      })
   };
 
   return (
@@ -34,8 +49,8 @@ export default function Register() {
           <label>
             Select your Role:
             <select value="role" onChange={handleChange}>
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
+              <option value="instructor">instructor</option>
+              <option value="student">student</option>
             </select>
           </label>
 
