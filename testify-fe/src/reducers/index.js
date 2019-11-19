@@ -1,7 +1,6 @@
-function reducer(state) {
+import { combineReducers } from 'redux';
+// import testPageReducer from './testPageReducer';
 
-    return state;
-
-}
-
-export default reducer;
+export default rootReducer = combineReducers({
+    // TestPage: testPageReducer
+});
