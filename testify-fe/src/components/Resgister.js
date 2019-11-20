@@ -13,17 +13,17 @@ export default function Register() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    api()
-      .post('/register', user)
-      .then(res => {
-        console.log("login data", res)
-        localStorage.setItem('token', res.data.token)
-        // props.history.push('/test')
-      })
-      .catch(err => {
-        console.log(err)
-        setError('Unable to create user.')
-      })
+    // api()
+    //   .post('/register', user)
+    //   .then(res => {
+    //     console.log("login data", res)
+    //     localStorage.setItem('token', res.data.token)
+    //     // props.history.push('/test')
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     // setError('Unable to create user.')
+    //   })
   };
 
   return (

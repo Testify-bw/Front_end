@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-// import testPageReducer from './testPageReducer';
+// import { combineReducers } from 'redux';
+// // import testPageReducer from './testPageReducer';
 
-export default rootReducer = combineReducers({
-    // TestPage: testPageReducer
-});
+// export default Reducer();
+
+export const reducer = () => { }
