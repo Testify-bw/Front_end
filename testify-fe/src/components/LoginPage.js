@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import api from "../utils/api";
 
-export default function Login() {
+//username: "t_wolsey",
+//password: "password"
+
+export default function Login(props) {
   const [error, setError] = useState();
   const [state, setState] = useState({
     username: "",
@@ -23,7 +26,7 @@ export default function Login() {
       .then(res => {
         console.log("login data", res);
         localStorage.setItem("token", res.data.token);
-        // props.history.push('/test')
+        props.history.push('/testlist')
       })
       .catch(err => {
         console.log(err);

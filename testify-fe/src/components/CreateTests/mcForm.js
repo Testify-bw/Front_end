@@ -1,15 +1,60 @@
-//a form for creating a true or false question will be created here
-//then the data can be push to ?? BE or to TestPage to then be posted to BE??
+import { useSelector, useDispatch } from 'react-redux';
+import * as actionType from '../actions';
 
-//true and false goes here as well
+const initialState = {
+    questions: [{
+        short_answer: false,
+        question_text: '',
+        answer: '',
+        question_choices: [{
+            choice: 'Correct Answer'
+        },
+        {
+            choice: 'Incorrect Answer 1'
+        },
+        {
+            choice: 'Incorrect Answer 2'
+        }]
+    }]
+}
 
-//dependicies
 
+function shortAnswer() {
+    const [formInput, setFormInput] = useState(initialState)
+    const dispatch = useDispatch();
+    const questions = useSelector(state => state.questions)
 
-//initial state
+    return (
+        <div>
+            <form>
+                <label>
+                    Question: Fi
+            <textarea
+                        type="text"
+                        placeholder="Input your question here" />
+                    <label>
+                        Answers
+              <input
+                            type="text"
+                            name="answerA"
+                            placeholder="input answer for A"
+                        />
+                        Answers
+              <input
+                            type="text"
+                            name="answerB"
+                            placeholder="input answer for B"
+                        />
+                        Answers
+              <input
+                            type="text"
+                            name="answerC"
+                            placeholder="input answer for C"
+                        />
+                    </label>
+                </label>
+            </form>
+        </div>
 
-//handle changes
-
-//Creat question .post
-
-//form
+    )
+}

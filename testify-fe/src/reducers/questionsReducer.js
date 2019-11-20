@@ -130,15 +130,6 @@ export const questionsReducer = (state = initialQuestion, action = {}) => {
                     isDeleting: false,
                 }
             }
-        case actionType.DELETE_TASK_FAILURE:
-            return {
-                ...state,
-                deleting: {
-                    ...state.deleting,
-                    isDeleting: false,
-                    deleteErr: action.payload
-                }
-            }
         case actionType.DELETE_QUESTION_FAILURE:
             return {
                 ...state,
