@@ -1,6 +1,9 @@
-// import { combineReducers } from 'redux';
-// // import testPageReducer from './testPageReducer';
+import { combineReducers } from 'redux';
+import testPageReducer from './testPageReducer';
+import questionsReducer from './questionsReducer';
 
-// export default Reducer();
 
-export const reducer = () => { }
+export const rootReducer = combineReducers({
+    questions: questionsReducer,
+    test: testPageReducer,
+})
