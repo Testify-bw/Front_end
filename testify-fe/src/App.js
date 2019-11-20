@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./components/LoginPage";
 import "./App.css";
 import Register from "./components/Register";
-import TestList from "./components/TestList";
+import TestList from "./components/CreateTests/TestList";
 
 function App() {
   return (

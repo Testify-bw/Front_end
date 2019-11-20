@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { Route, Link } from "react-router-dom";
+import TestPage from "./TestPage";
 
 const Main = styled.div`
   margin: 0 auto;
@@ -68,11 +70,17 @@ export default function TestList() {
   return (
     <Main>
       <Header>
-        <Button type="submit">Create New Test</Button>
-        <h2>Test List</h2>
+        <Link to="/TestPage">
+          <Button type="submit">Create New Test</Button>
+        </Link>
+        <Link to="/">
+          <h2>Test List</h2>
+        </Link>
       </Header>
       <h2>Current Tests</h2>
       <List>Tests</List>
+
+      <Route path="/TestPage" component={TestPage} />
     </Main>
   );
 }
