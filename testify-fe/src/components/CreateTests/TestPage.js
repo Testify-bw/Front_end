@@ -1,41 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import McForm from "./McForm";
+import FibForm from "./FibForm";
 
 export default function TestPage() {
   return (
-    <div>
-      <form>
-        <label>
-          Question:
-          <textarea type="text" placeholder="Input your question here" />
-          <label>
-            Answers
-            <input
-              type="text"
-              name="answerA"
-              placeholder="input answer for A"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerB"
-              placeholder="input answer for B"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerC"
-              placeholder="input answer for C"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerD"
-              placeholder="input answer for D"
-            />
-          </label>
-        </label>
-      </form>
+    <div className="testpage">
+      <FibForm />
+      <McForm />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import TestPage from "./TestPage";
 const Main = styled.div`
   margin: 0 auto;
   width: 100%;
-  height: 568px;
+  height: 100%;
   background: #e7757d;
 `;
 
@@ -53,19 +53,18 @@ const Button = styled.button`
 `;
 
 export default function TestList() {
-  //   const [test, getTest] = useState;
+  // const [test, getTest] = useState;
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(``)
-  //       .then(response => {
-  //         console.log(response.data.results);
-  //         getTest(response.data.results);
-  //       })
-  //       .catch(error => {
-  //         console.error(error);
-  //       });
-  //   }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://bw-testify.herokuapp.com/api/tests/:id")
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   return (
     <Main>
@@ -79,6 +78,7 @@ export default function TestList() {
       </Header>
       <h2>Current Tests</h2>
       <List>Tests</List>
+      <Route path="/TestList" component={TestList} />
 
       <Route path="/TestPage" component={TestPage} />
     </Main>

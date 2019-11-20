@@ -26,6 +26,33 @@ h2 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+.testpage {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mcform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mcinputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.mclabel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.mcthings {
+  margin-top: 20px;
+}
+
 @media (max-width: 500px) {
   h2 {
     font-size: 1.5rem;
