@@ -3,12 +3,7 @@ import McForm from "./McForm";
 import FibForm from "./FibForm";
 
 export default function TestPage() {
-  return (
-    <div className="testpage">
-      <FibForm />
-      <McForm />
-    </div>
-  );
+  return <div className="testpage"></div>;
 }
 
 //create button from TestList will take you to this page/compoenet
