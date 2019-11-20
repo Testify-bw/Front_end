@@ -3,12 +3,49 @@
 
 //dependicies
 import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import * as actionType from '../actions';
 
-//initial state
+const initialState = {
+    questions: [{
+        short_answer: true,
+        question_text: '',
+        answer: '',
+        question_choices: [{
+            choice: 'Correct Answer'
+        },
+        {
+            choice: 'Incorrect Answer 1'
+        },
+        {
+            choice: 'Incorrect Answer 2'
+        }]
+    }]
+}
 
-const questions = useSelector(state => state.questions)
 
+function shortAnswer() {
+    const [formInput, setFormInput] = useState(initialState)
+    const dispatch = useDispatch();
+    const questions = useSelector(state => state.questions)
+
+    const addQuestion = questions => {
+        dispatch({ type: `CREATE_QUESTION_LOADING` })
+        api()
+            .post('/???', questions)
+            .then(res => {
+                console.log()
+                dispatch({ type: `CREATE_QUESTION_SUCCESS`, payload: res.data })
+            })
+            .catch(err => dispatch({ type: `CREATE_QUESTION_FAILURE`, payload: err }))
+    }
+
+    return (
+        <>
+        </>
+
+    )
+}
 //handle changes
 
 //Creat question .post
