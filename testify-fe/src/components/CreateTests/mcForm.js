@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import * as actionType from '../actions';
+import React, { useState } from 'react';
+// import * as actionType from '../actions';
+import api from '../../utils/api';
 
 const initialState = {
     questions: [{
@@ -19,42 +21,28 @@ const initialState = {
 }
 
 
-function shortAnswer() {
+function McForm() {
     const [formInput, setFormInput] = useState(initialState)
     const dispatch = useDispatch();
     const questions = useSelector(state => state.questions)
 
+    const addQuestion = questions => {
+        dispatch({ type: `CREATE_QUESTION_LOADING` })
+        api()
+            .post('/???', questions)
+            .then(res => {
+                console.log()
+                dispatch({ type: `CREATE_QUESTION_SUCCESS`, payload: res.data })
+            })
+            .catch(err => dispatch({ type: `CREATE_QUESTION_FAILURE`, payload: err }))
+    }
+
+
     return (
-        <div>
-            <form>
-                <label>
-                    Question: Fi
-            <textarea
-                        type="text"
-                        placeholder="Input your question here" />
-                    <label>
-                        Answers
-              <input
-                            type="text"
-                            name="answerA"
-                            placeholder="input answer for A"
-                        />
-                        Answers
-              <input
-                            type="text"
-                            name="answerB"
-                            placeholder="input answer for B"
-                        />
-                        Answers
-              <input
-                            type="text"
-                            name="answerC"
-                            placeholder="input answer for C"
-                        />
-                    </label>
-                </label>
-            </form>
-        </div>
+        <>
+        </>
 
     )
 }
+
+export default McForm;

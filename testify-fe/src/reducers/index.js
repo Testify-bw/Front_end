@@ -5,5 +5,5 @@ import questionsReducer from './questionsReducer';
 
 export const rootReducer = combineReducers({
     questions: questionsReducer,
-    test: testPageReducer,
+    tests: testPageReducer,
 })

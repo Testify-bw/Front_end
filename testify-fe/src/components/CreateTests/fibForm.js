@@ -4,7 +4,8 @@
 //dependicies
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import * as actionType from '../actions';
+// import * as actionType from '../actions';
+import api from '../../utils/api';
 
 const initialState = {
     questions: [{
@@ -24,7 +25,7 @@ const initialState = {
 }
 
 
-function shortAnswer() {
+function FibForm() {
     const [formInput, setFormInput] = useState(initialState)
     const dispatch = useDispatch();
     const questions = useSelector(state => state.questions)
@@ -42,10 +43,35 @@ function shortAnswer() {
 
     return (
         <>
+            <div className="mcform">
+                <form className="mcinputs">
+                    <label className="mclabel">
+                        Fill in the blank question
+          <textarea
+                            className="mcthings"
+                            type="text"
+                            placeholder="Input your question here "
+                        />
+                    </label>
+                    <label className="mclabel">
+                        Answer
+          <input
+                            className="mcthings"
+                            type="text"
+                            placeholder="Input your answer here"
+                        />
+                    </label>
+                    <button className="mcthings" type="submit">
+                        Submit Question
+        </button>
+                </form>
+            </div>
         </>
 
     )
 }
+
+export default FibForm;
 //handle changes
 
 //Creat question .post
