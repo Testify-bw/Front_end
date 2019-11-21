@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styled from "styled-components";
-import { Route, Link } from "react-router-dom";
-import TestPage from "./TestPage";
+import { Link } from "react-router-dom";
+import api from "../../utils/api";
+import TestCard from "./TestCard";
 
 const Main = styled.div`
   margin: 0 auto;
   width: 100%;
-  height: 568px;
+  height: 100%;
   background: #e7757d;
 `;
 
@@ -52,20 +52,34 @@ const Button = styled.button`
   margin-left: 2%;
 `;
 
-export default function TestList() {
-  //   const [test, getTest] = useState;
+const Logout = styled.button`
+  background: #c2b9b0;
+  border: 2px solid #7e685a;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding: 20%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 2%;
+`;
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(``)
-  //       .then(response => {
-  //         console.log(response.data.results);
-  //         getTest(response.data.results);
-  //       })
-  //       .catch(error => {
-  //         console.error(error);
-  //       });
-  //   }, []);
+export default function TestList() {
+  const [test, setTest] = useState([]);
+
+  useEffect(() => {
+    api()
+      .get("/users/test/1")
+      .then(response => {
+        console.log(response.data.questions);
+        // setTest([...test, response.data]);
+        setTest(response.data.questions);
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  }, []);
 
   return (
     <Main>
@@ -73,14 +87,19 @@ export default function TestList() {
         <Link to="/TestPage">
           <Button type="submit">Create New Test</Button>
         </Link>
+        <Link to="/TestList">
+          <Button>Current Test List</Button>
+        </Link>
         <Link to="/">
-          <h2>Test List</h2>
+          <Logout>Logout</Logout>
         </Link>
       </Header>
       <h2>Current Tests</h2>
-      <List>Tests</List>
-
-      <Route path="/TestPage" component={TestPage} />
+      <List>
+        {test.map(data => (
+          <TestCard data={data} />
+        ))}
+      </List>
     </Main>
   );
 }

@@ -1,42 +1,73 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import McForm from "./mcForm";
+import {Link} from  "react-router-dom";
+import styled from "styled-components";
+
+const Main = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: #e7757d;
+`;
+
+const Header = styled.header`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+  height: 65px;
+  background: #c2cad0;
+  mix-blend-mode: normal;
+  border: 3px solid #7e685a;
+  box-sizing: border-box;
+  border-radius: 15px;
+`;
+
+const Button = styled.button`
+  background: #c2b9b0;
+  border: 2px solid #7e685a;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding: 0.5%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 2%;
+`;
+
+
+const Logout = styled.button`
+  background: #c2b9b0;
+  border: 2px solid #7e685a;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding: 20%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 2%;
+`;
+
+
 
 export default function TestPage() {
   return (
-    <div>
-      <form>
-        <label>
-          Question:
-          <textarea type="text" placeholder="Input your question here" />
-          <label>
-            Answers
-            <input
-              type="text"
-              name="answerA"
-              placeholder="input answer for A"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerB"
-              placeholder="input answer for B"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerC"
-              placeholder="input answer for C"
-            />
-            Answers
-            <input
-              type="text"
-              name="answerD"
-              placeholder="input answer for D"
-            />
-          </label>
-        </label>
-      </form>
-    </div>
+    <Main >
+      <Header>
+        <Link to="/TestList">
+      <Button>Current Test List</Button>
+      </Link>
+      <Link to="/">
+          <Logout>Logout</Logout>
+        </Link>
+
+      </Header>
+      <McForm />
+    </Main>
   );
 }
 
