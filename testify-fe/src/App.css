@@ -22,6 +22,8 @@
 }
 
 h2 {
+  list-style: none;
+  text-decoration: none;
   font-size: 3rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -29,6 +31,9 @@ h2 {
 .testpage {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  background: #e7757d;
 }
 
 .mcform {
@@ -58,3 +63,4 @@ h2 {
     font-size: 1.5rem;
   }
 }
+
