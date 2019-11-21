@@ -70,7 +70,7 @@ export default function TestList() {
   return (
     <Main>
       <Header>
-        <Link to="/TestPage">
+        <Link to="/testpage">
           <Button type="submit">Create New Test</Button>
         </Link>
         <Link to="/">
@@ -80,7 +80,7 @@ export default function TestList() {
       <h2>Current Tests</h2>
       <List>Tests</List>
 
-      <Route path="/TestPage" component={TestPage} />
+
     </Main>
   );
 }

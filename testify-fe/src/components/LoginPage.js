@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import api from "../utils/api";
+import { useDispatch, useSelector } from 'react-redux';
+import { LOGIN_SUCCESS } from '../actions/index';
+
 
 //username: "t_wolsey",
 //password: "password"
@@ -10,6 +13,8 @@ export default function Login(props) {
     username: "",
     password: ""
   });
+  const dispatch = useDispatch();
+  // const state = useSelector(state => state)
 
   const handleChange = e => {
     setState({
@@ -25,6 +30,7 @@ export default function Login(props) {
       .post("/login", state)
       .then(res => {
         console.log("login data", res);
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
         localStorage.setItem("token", res.data.token);
         props.history.push('/testlist')
       })
@@ -42,7 +48,7 @@ export default function Login(props) {
           <input
             type="text"
             name="username"
-            //   value={data}
+            value={state.username}
             onChange={handleChange}
             placeholder="Username"
           />
@@ -50,7 +56,7 @@ export default function Login(props) {
           <input
             type="password"
             name="password"
-            //   value={data}
+            value={state.password}
             onChange={handleChange}
             placeholder="Password"
           />

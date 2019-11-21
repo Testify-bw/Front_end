@@ -7,7 +7,7 @@ const intitialState = {
     password: ""
 }
 
-const reducer = (state = intitialState, action) => {
+const loginReducer = (state = intitialState, action) => {
     switch (action.type) {
         case LOGIN_SUCCESS:
             console.log(action.payload)
@@ -19,4 +19,4 @@ const reducer = (state = intitialState, action) => {
     }
 }
 
-export default reducer;
+export default loginReducer;
